@@ -30,15 +30,15 @@ cv2.imwrite('ocean_gray.png', img_gray)
 
 Image = cv2.imread('result_ocean.png')
 
-print(Image.shape)
-print(Image.size)
-px = Image[300, 300]
-print(px)
+print(Image.shape) # (높이, 너비, 3) 으로 출력됨
+print(Image.size) # 이미지의 크기
+px = Image[300, 300] # (300,300) 위치 픽셀의 색상 값 배열을 px에 저장, 할당.
+print(px) # 색상 값을 (blue, green, red) 순서로 0~255 사이에서 출력 (?)
 
 # 특정 픽셀 색상 변경
 
 Image = cv2.imread('result_ocean.png')
-Image[0:130, 0:130] = [0, 0, 0]
+Image[0:130, 0:130] = [0, 0, 0] # 전체 픽셀중 세로 [0:130] 픽셀과 가로 [0:130] 픽셀의 색상 [blue,green,red]을 모두 0 으로 변경 ---> 검정색
 cv2.imshow('Image White', Image)
 cv2.waitKey(0)
 
@@ -46,17 +46,17 @@ cv2.waitKey(0)
 # 특정 색상 제거
 
 image = cv2.imread('ocean.jpg')
-image[:, :, 1] = 0
+image[:, :, 1] = 0 # 읽어온 이미지의 Green 색상을 모두 제거. 0 : Blue, 1 : Green, 2 : Red ---> 남은 색이 파랑과 빨강이므로 보라색 이미지 출력  
 cv2.imshow('Image', image)
 cv2.waitKey(0)
 
 # 특정 픽셀 복사 붙여넣기
 
 roi_ocean = cv2.imread('ocean.jpg')
-logo = roi_ocean[200:400, 250:450]
+logo = roi_ocean[200:400, 250:450] # 가로 [200:400] 픽셀과 세로 [250:450] 픽셀을 추출
 cv2.imshow('Image ROI', logo)
 cv2.waitKey(0)
 
-roi_ocean[100:300, 100:300] = logo
+roi_ocean[100:300, 100:300] = logo # 원래 이미지의 가로 [100:300] 픽셀과 세로 [100:300] 픽셀을 위에서 추출한 데이터로 붙여넣기.
 cv2.imshow('Image ROI', roi_ocean)
 cv2.waitKey(0)
