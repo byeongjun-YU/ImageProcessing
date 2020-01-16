@@ -7,9 +7,8 @@
 # cv2.imshow(title, image) : 특정한 이미지를 화면에 출력하는 함수.
 # cv2.imwrite(file_name, image) : 특정한 파일을 이미지로 저장하는 함수.
 # cv2.waitKey(time) : 키보드 입력을 처리하는 함수
-import numpy as np
+
 import cv2
-import time
 
 # 이미지 파일 읽어오기.
 
